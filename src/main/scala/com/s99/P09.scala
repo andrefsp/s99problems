@@ -1,12 +1,16 @@
 package com.s99
 
-/**
- * Created by dapalmaa on 04/10/15.
- */
+
 object P09 {
 
-  def pack(x: List[Any]) = {
-
+  def pack(x: List[Any]): List[Any] = {
+    x.isEmpty match {
+      case true => x
+      case false => {
+        val split = x.span((k: Any) => x.head == k)
+        split._1 :: pack(split._2)
+      }
+    }
   }
 
 }
