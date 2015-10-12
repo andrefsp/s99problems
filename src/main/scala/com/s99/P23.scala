@@ -5,11 +5,11 @@ import scala.util.Random
 object P23 extends P20 {
 
   def randomSelect(n: Int, list: List[Any]): List[Any] = {
-    def pickRandom(decrement: Int, remaing: List[Any], randomList: List[Any]): List[Any] = {
+    def pickRandom(decrement: Int, remaining: List[Any], randomList: List[Any]): List[Any] = {
       decrement == 0 match {
         case true => randomList
         case false => {
-          val charTuple = removeAt(Random.nextInt(remaing.length), remaing)
+          val charTuple = removeAt(Random.nextInt(remaining.length), remaining)
           pickRandom(decrement-1, charTuple._1, randomList ++ List(charTuple._2))
         }
       }
